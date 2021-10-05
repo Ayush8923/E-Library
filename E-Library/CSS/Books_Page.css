@@ -1,0 +1,660 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+    font-family: 'segoe ui';
+}
+  
+/* Start Navigation-Bar */
+  
+.nav {
+    height: 50px;
+    width: 100%;
+    background-color: gray;
+    position: relative;
+}
+  
+.nav > .nav-header { 
+    display: inline;
+}
+  
+.nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 25px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+}
+  
+.nav > .nav-btn {
+    display: none;
+}
+  
+.nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+  
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: white;
+}
+  
+.nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+  
+.nav > #nav-check {
+    display: none;
+}
+  
+@media (max-width:600px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+}
+  
+.nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+}
+  
+.nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+}
+  
+.nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid white;
+}
+
+.nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: wheat;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0;
+}
+
+.nav > .nav-links > a {
+      display: block;
+      width: 100%;
+}
+
+.nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+}
+
+.nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+}
+  /* Close Navigation-Bar */
+
+/* Books Details */
+.detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  /* .books-details img{
+   
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  } */
+  
+  .book-paragraph {
+    box-sizing: border-box;
+    margin: 15px 27px 20px 20px;
+  }
+  
+  .book-paragraph h2{
+    margin-left: 0;
+    font-size: 28px;
+  }
+  
+  .book-paragraph p{
+    font-size: 15px;
+  }
+
+  #more{
+    display: none;
+  }
+  /* The Modal */
+  #myImg {
+    height: 60vh;
+    width: 20vw;
+    padding: 10px 30px 20px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #myImg:hover {opacity: 0.7;}
+
+  /* The Modal */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9); 
+}
+
+/* Modal Content */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+  /* The Close Button */
+  .close{
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus{
+    color: gray;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Responsive Image Width */
+  @media only screen and (max-width: 768px){
+    .model-content{
+      width: 100;
+    }
+  }
+  /* Close the Modal */
+  
+  /* Books Slider */
+  .parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
+  
+  h2{
+      font-size: 28px;
+      margin-left: 25px;
+  }
+  
+  .child{
+    width: 20%;
+    margin: 0 40px 0 30px;
+  }
+  
+  #leftarrow , #rightarrow{
+    margin: 0 0 0 12px;
+    width: 4%;
+    display: inline-block;
+  }
+  
+  #leftarrow button, #rightarrow button{
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  
+  .child img{
+    height: 230px;
+    width: 120%;
+  }
+  
+  .child a{
+    text-decoration: none;
+    color:black;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .child p{
+    text-align: start;
+    margin-top: 10px;
+    width: 150%;
+  }
+  
+  .child span{
+    color:slategrey;
+  }
+  
+  .child a:hover{
+    color: blue;
+  }
+  
+  /* Close Books Slider */
+  
+  /* From the Publisher */
+  .publisher p{
+    box-sizing: border-box;
+    font-size: 30px;
+    margin-left: 40px;
+    font-weight: bold;
+  }
+  
+  .publisher_poster img , .ending_publisher_poster img , .books_part-2 img{
+    transform: translateX(30%);
+  }
+  
+  .books_part{
+    transform: translateX(16%);
+  }
+  
+  /* Close From the Publisher */
+  
+  /* Product Description */
+  .Product_description{
+    box-sizing: border-box;
+    margin: 0 10px 0 30px;
+  }
+  
+  .description_title p{
+    margin-left: 5px;
+    font-size: 30px;
+  }
+  
+  .Review h3{
+    margin: 0 30px;
+    font-size: 20px;
+  }
+
+  .Review p{
+      box-sizing: border-box;
+      margin-left: 45px;
+  }
+  /* Close Product Description */
+
+/* Product Details */
+.Product_details h2{
+    font-size: 25px;
+}
+
+.Product_details p{
+    margin-left: 25px;
+    line-height: 2.0;
+}
+/* Close Product Details */
+
+/* Footer */
+.footer{
+    padding: 20px;
+    background-color: #ededed;
+}
+  
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+  
+.footer ul li a{
+    font-weight: bold;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+  
+.footer ul li{
+    display: inline-flex;
+    padding: 0 15px;
+}
+  
+.footer ul li a:hover{
+    opacity: 1;
+}
+  
+.footer .copyright{
+    margin-top: 30px;
+    text-align: center;
+    font: 13px;
+    color: #aaa;
+}
+/* Close Footer */
+
+/* Responsive Books Page */
+@media (max-width:1440px) {
+  body{
+    box-sizing: border-box;
+  }
+
+  .nav{
+    width: 150%;
+  }
+
+  .books-details img{
+    height: 40vh;
+    width: 30vw;
+  }
+
+  .book-paragraph h2{
+    font-size: 30px;
+  }
+
+  .book-paragraph p{
+    font-size: 20px;
+  }
+
+  .book-paragraph button{
+    font-size: 8px;
+  }
+
+  .parent{
+    height: 250px;
+  }
+
+  .child{
+    height: 280px;
+    width: 20%;
+    margin: 50px 10px 0 20px;
+  }
+
+  .child img{
+    height: 200px;
+    width: 90%;
+  }
+
+  .child a{
+    font-size: 10px;
+  }
+
+  .child p{
+    font-size: 10px
+  }
+
+  .books_poster{
+    box-sizing: border-box;
+  }
+
+  .publisher_poster img{
+    width: 60%;
+    transform: translateX(35%);
+  }
+
+  .books_part-2 img{
+    width: 60%;
+    transform: translateX(35%);
+  }
+
+  .books_part img{
+    transform: translateX(35%);
+    width: 13%;
+  }
+
+  .ending_publisher_poster img{
+    transform: translateX(35%);
+    width: 60%;
+  }
+
+  .Review p{
+    width: 105%;
+  }
+}
+
+@media (max-width:768px){
+  body{
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 150%;
+  }
+
+  .nav{
+    width: 104%;
+  }
+
+  .books-details img{
+    height: 80vh;
+    width: 50vw;
+  }
+
+  .book-paragraph h2{
+    font-size: 20px;
+  }
+
+  .book-paragraph p{
+    font-size: 15px;
+  }
+
+  .book-paragraph button{
+    font-size: 8px;
+  }
+
+  .parent{
+    height: 250px;
+  }
+
+  .child{
+    height: 280px;
+    width: 20%;
+    margin: 50px 10px 0 20px;
+  }
+
+  .child img{
+    height: 200px;
+    width: 100%;
+  }
+
+  .child a{
+    font-size: 10px;
+  }
+
+  .child p{
+    font-size: 10px
+  }
+
+  .books_poster{
+    box-sizing: border-box;
+  }
+
+  .publisher_poster img{
+    width: 60%;
+    transform: translateX(35%);
+  }
+
+  .books_part-2 img{
+    width: 60%;
+    transform: translateX(35%);
+  }
+
+  .books_part img{
+    transform: translateX(35%);
+    width: 13%;
+  }
+
+  .ending_publisher_poster img{
+    transform: translateX(35%);
+    width: 60%;
+  }
+
+  .Review p{
+    width: 95%;
+  }
+
+  .footer{
+    padding: 60px;
+    margin-top: 150px;
+  }
+} 
+
+@media (max-width:425px){
+  body{
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 150%;
+  }
+
+  .nav{
+    width: 100%;
+  }
+
+  .books-details img{
+    height: 60vh;
+    width: 55vw;
+  }
+
+  .book-paragraph h2{
+    font-size: 20px;
+  }
+
+  .book-paragraph p{
+    font-size: 12px;
+  }
+
+  .book-paragraph button{
+    font-size: 8px;
+  }
+
+  .parent{
+    height: 250px;
+  }
+
+  .child{
+    height: 280px;
+    width: 20%;
+    margin: 50px 10px 0 20px;
+  }
+
+  .child img{
+    height: 160px;
+    width: 140%;
+  }
+
+  .child a{
+    font-size: 10px;
+  }
+
+  .child p{
+    font-size: 10px
+  }
+
+  .books_poster{
+    box-sizing: border-box;
+  }
+
+  .publisher_poster img{
+    width: 60%;
+    transform: translateX(35%);
+  }
+
+  .books_part-2 img{
+    width: 60%;
+    transform: translateX(35%);
+  }
+
+  .books_part img{
+    transform: translateX(35%);
+    width: 13%;
+  }
+
+  .ending_publisher_poster img{
+    transform: translateX(35%);
+    width: 60%;
+  }
+
+  .Review p{
+    width: 95%;
+  }
+
+  .footer{
+    padding: 60px;
+    margin-top: 150px;
+  }
+} 
+/* Close Responsive Page */
+  
